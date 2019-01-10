@@ -10,18 +10,12 @@ int linkedlist::length()const {
 	return count;
 }
 
-bool linkedlist::isEmptyList()const {
-	return count == 0;
-}
-
 void linkedlist::insertNew(string value) {
 
 	node *valuenode = new node;
 
 	valuenode->data = value;
 	valuenode->wordCount = 1;
-	valuenode->link = NULL;
-
 	valuenode->link = first;
 	first = valuenode;
 

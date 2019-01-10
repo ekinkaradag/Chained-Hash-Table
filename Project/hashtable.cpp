@@ -12,9 +12,9 @@ Hash::~Hash() {
 
 
 void Hash::insertItem(string word) {
-	unsigned long loc = 5381; //prime number
+	unsigned int loc = 6151; //prime number
 	
-	const unsigned int x = 997; //prime number
+	const unsigned int x = 769; //prime number
 
 	for (unsigned int i = 0; i < word.length(); i++) {
 		loc = x * loc + (word[i]);
@@ -114,6 +114,8 @@ void Hash::displayMostUsed() {
 		}
 
 	}
-	for (int i = 0; i < 10; i++)
-		cout << topWords[i] << "\t\t" << topCounts[i]  << "\n";
+	if (topCounts[9] != 0) {
+		for (int i = 0; i < 10; i++)
+			cout << topWords[i] << "\t\t" << topCounts[i] << "\n";
+	}
 }

@@ -1,8 +1,8 @@
-
+﻿
 # Chained Hash Table Data Structure
 This is my Data Structures and Algorithms (C++) 2018-2019 fall term project. We were expected to write a C++ console application which reads a .csv text file that consists of 1.6M tweets and then prints out the top 10 most frequent words in the tweets. We had to exclude stop words which is used very often in daily life (i.e. a, an, the, like). 30% of the project's grade was given for the execution time, so I had to implement the program with a minimal time complexity.
 
-Visual Studio with C++ is needed to compile
+I used Visual Studio with C++ to compile, but any other compiler can be used to implement the source code.
 
 <hr />
 
@@ -27,8 +27,8 @@ Visual Studio with C++ is needed to compile
 - Program will only search the stop words between the starting index and until the next one (e.g. if the program wants to search the words that start with letter b it would search from stopWords[61] to stopWords[89])
 - I created a virtual ending point because if z is the starting letter, it would not now when to stop.
 <p align="center">
-<a href="https://1.bp.blogspot.com/-578iA1TMXXA/XHmcUakm6gI/AAAAAAAAAU4/brLZBgkXm-E76JGzF4SvENtmX2stTkkBgCPcBGAYYCw/s1600/stopwords%2Barray.png">
-<img src="https://1.bp.blogspot.com/-578iA1TMXXA/XHmcUakm6gI/AAAAAAAAAU4/brLZBgkXm-E76JGzF4SvENtmX2stTkkBgCPcBGAYYCw/s1600/stopwords%2Barray.png" width="500">
+<a href="https://github.com/ekinkaradag/Chained-Hash-Table/blob/master/Report%20Images/Stop-Words-Array.png">
+<img src="https://github.com/ekinkaradag/Chained-Hash-Table/blob/master/Report%20Images/Stop-Words-Array.png" width="500">
 </a>
 </p>
 
@@ -45,8 +45,9 @@ Visual Studio with C++ is needed to compile
 
 ### Creating a Chained Hash Table
 
-
-<img align="right" src="https://2.bp.blogspot.com/-Yvrl3RaxYGY/XHmc2m-wH0I/AAAAAAAAAVA/RCkkXC0eFzAow6Xb432h8-rmkE2fyQwtgCPcBGAYYCw/s1600/Chained-Hash-Table.png" width="320" />
+<a href="https://github.com/ekinkaradag/Chained-Hash-Table/blob/master/Report%20Images/Chained-Hash-Table.png">
+<img align="right" src="https://github.com/ekinkaradag/Chained-Hash-Table/blob/master/Report%20Images/Chained-Hash-Table.png" width="320" />
+</a>
 
 - I've made a chained hash table from scratch to easily insert the words.
 - The size of the hash table is defined in main(). I preferred to use the size 1000003 because it is a prime number, useful in modulus operations to differentiate the words’ locations(avoid collisions) and I found out that the total number of words to be inserted is 804718.
@@ -79,7 +80,9 @@ After program gets to the 6th comma separated “string” field in the current 
 
 ### Hash Table Function
 
-<img align="right" src="https://2.bp.blogspot.com/-Yvrl3RaxYGY/XHmc2m-wH0I/AAAAAAAAAVA/RCkkXC0eFzAow6Xb432h8-rmkE2fyQwtgCPcBGAYYCw/s1600/Chained-Hash-Table.png" width="320" />
+<a href="https://github.com/ekinkaradag/Chained-Hash-Table/blob/master/Report%20Images/Chained-Hash-Table.png">
+<img align="right" src="https://github.com/ekinkaradag/Chained-Hash-Table/blob/master/Report%20Images/Chained-Hash-Table.png" width="320" />
+</a>
 
 - I used the function below to insert the words into the most correct position possible with the help of prime numbers (to avoid collisions as much as possible).
 

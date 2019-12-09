@@ -8,7 +8,7 @@ I used Visual Studio with C++ to compile, but any other compiler can be used to 
 
 ### Used Libraries
 
-```
+```cpp
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -32,13 +32,14 @@ I used Visual Studio with C++ to compile, but any other compiler can be used to 
 </a>
 </p>
 
-    firsLetterLocation[0] == 0						// a
-    firsLetterLocation[1] == 61						// b
-    firsLetterLocation[2] == 89						// c
-    firsLetterLocation[25] == 657						// z
-    firsLetterLocation[26] == sizeof(stopWords) / sizeof(stopWords[0])	// 659 in this case
-    // All of the above will return true
-
+```cpp
+firsLetterLocation[0] == 0						// a
+firsLetterLocation[1] == 61						// b
+firsLetterLocation[2] == 89						// c
+firsLetterLocation[25] == 657						// z
+firsLetterLocation[26] == sizeof(stopWords) / sizeof(stopWords[0])	// 659 in this case
+// All of the above will return true
+```
 
 <br />
 <hr />
@@ -54,11 +55,11 @@ I used Visual Studio with C++ to compile, but any other compiler can be used to 
 - Every point of the hash table consists of linked links. If there is more than one node on a specific location, I would have a collision which would slow down the searching process but I would be sure every "proper" word is counted.
 - Linked lists consists of nodes which has the following elements;
 
-
-> string word
-unsigned long count
-node *link
-
+```cpp
+string word;
+unsigned long count;
+node *link;
+```
 <br />
 <hr />
 
@@ -86,15 +87,17 @@ After program gets to the 6th comma separated “string” field in the current 
 
 - I used the function below to insert the words into the most correct position possible with the help of prime numbers (to avoid collisions as much as possible).
 
->     unsigned int loc = 6151; //prime number
->     const unsigned int x = 769; //prime number
->     for (unsigned int i = 0; i < word.length(); i++) {
->     	loc = x * loc + (word[i]);
->     }
->     loc = loc % bucketSize;
->     if (!table[loc].search(word)) { // If found, the word's count will increase
-> 	    table[loc].insertNew(word);
->     }
+```cpp
+unsigned int loc = 6151; //prime number
+const unsigned int x = 769; //prime number
+for (unsigned int i = 0; i < word.length(); i++) {
+	loc = x * loc + (word[i]);
+}
+loc = loc % bucketSize;
+if (!table[loc].search(word)) { // If found, the word's count will increase
+    table[loc].insertNew(word);
+}
+```
 
 - If  the word is already in the list, search function increases the word’s count automatically. insertNew function adds the new word with count 1 to the beginning of the linked list.
 - I did not use another function to get the hash key because it is unnecessary in this case and this is really easy to understand in my opinion.
@@ -108,19 +111,21 @@ After program gets to the 6th comma separated “string” field in the current 
 - After getting the most used word and its count from the currently reading array, hash table’s displayMostUsed function stores them to local arrays if and only if the word’s count is greater than any other count in the local array.
 - I didn’t have to sort the top 10 array in displayMostUsed function because it shifts the counts towards the end of the array, as the new values come in.
 
->     void linkedlist::mostUsedInList(unsigned long *topCount, string *topWord) {
->         unsigned long currentHigh = 0;
->         node *temp = first;
->         while (temp != NULL) { //search in the current list
->             if (temp->wordCount > currentHigh) {
->                 currentHigh = temp->wordCount;
->                 *topWord = temp->data;
->                 *topCount = temp->wordCount;
->             }
->             temp = temp->link;
->         }
->         delete temp;
->     }
+```cpp
+void linkedlist::mostUsedInList(unsigned long *topCount, string *topWord) {
+ unsigned long currentHigh = 0;
+ node *temp = first;
+ while (temp != NULL) { //search in the current list
+     if (temp->wordCount > currentHigh) {
+         currentHigh = temp->wordCount;
+         *topWord = temp->data;
+         *topCount = temp->wordCount;
+     }
+     temp = temp->link;
+ }
+ delete temp;
+}
+```
 
 <br />
 <hr />
